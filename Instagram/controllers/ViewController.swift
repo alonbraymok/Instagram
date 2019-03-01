@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
@@ -24,6 +25,19 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func signInTapped(_ sender: Any) {
+    
+        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            if error != nil {
+                return
+            print("log in not seccesfully")
+                
+        }
+             print("log in seccesfully")
+            self.performSegue(withIdentifier: "moveToProfile", sender: self)
+    }
+    
+    
+}
 }
 
