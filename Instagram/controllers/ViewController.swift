@@ -26,16 +26,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signInTapped(_ sender: Any) {
-    
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            if error != nil {
-                return
-            print("log in not seccesfully")
-                
-        }
-             print("log in seccesfully")
+        
+        FirebaseService.signIn(email: emailTextField.text!, password: passwordTextField.text!) {
             self.performSegue(withIdentifier: "moveToProfile", sender: self)
-    }
+        }
+        
+
     
     
 }

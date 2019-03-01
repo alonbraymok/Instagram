@@ -153,6 +153,7 @@
                         <outlet property="passwordTextField" destination="MG1-K7-XB4" id="DnU-LD-qgW"/>
                         <outlet property="profileImage" destination="59Q-cE-fpP" id="2ll-ao-XtJ"/>
                         <outlet property="usernameTextField" destination="RqN-o0-fET" id="CyL-hq-qJd"/>
+                        <segue destination="b0J-on-T2d" kind="presentation" identifier="backToSignIn" id="m59-jD-gu5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tx4-eA-BZe" userLabel="First Responder" sceneMemberID="firstResponder"/>

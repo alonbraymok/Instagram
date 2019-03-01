@@ -71,7 +71,8 @@ class SignUpViewController: UIViewController {
                     let userRef = ref.child("users")
                     let newUserRef = userRef.child(uid!)
                     newUserRef.setValue(["username": self.usernameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": url])
-                    
+                    print("signed in")
+                    self.performSegue(withIdentifier: "backToSignIn", sender: self)
                     }
                 
                 })

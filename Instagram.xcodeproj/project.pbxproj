@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A00DA041E5E5542B7B7F14E /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CA2A96FEC74C0492E041C1 /* Pods_Instagram.framework */; };
 		596A1591A5B526B7E425EED5 /* Pods_InstagramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B666B9EFB529BB5E56AD2121 /* Pods_InstagramUITests.framework */; };
+		840FF57C2229BE0100E97D07 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840FF57B2229BE0100E97D07 /* FirebaseService.swift */; };
 		8425C563221BFAE90015A9BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C562221BFAE90015A9BC /* AppDelegate.swift */; };
 		8425C565221BFAE90015A9BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425C564221BFAE90015A9BC /* ViewController.swift */; };
 		8425C56A221BFAEB0015A9BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8425C569221BFAEB0015A9BC /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		0C456531E1F1951718774200 /* Pods-InstagramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		19CA2A96FEC74C0492E041C1 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7159281132D3A12A98474D85 /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		840FF57B2229BE0100E97D07 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		8425C55F221BFAE90015A9BC /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8425C562221BFAE90015A9BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8425C564221BFAE90015A9BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		840FF57A2229BDC700E97D07 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				840FF57B2229BE0100E97D07 /* FirebaseService.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		8425C556221BFAE90015A9BC = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 		8425C561221BFAE90015A9BC /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				840FF57A2229BDC700E97D07 /* model */,
 				8425C5AC221C2BD30015A9BC /* storyboards */,
 				8425C5AD221C2C140015A9BC /* controllers */,
 				8425C569221BFAEB0015A9BC /* Assets.xcassets */,
@@ -464,6 +475,7 @@
 				8425C591221C064E0015A9BC /* SignUpViewController.swift in Sources */,
 				8425C565221BFAE90015A9BC /* ViewController.swift in Sources */,
 				8425C59B221C17620015A9BC /* ActivityViewController.swift in Sources */,
+				840FF57C2229BE0100E97D07 /* FirebaseService.swift in Sources */,
 				8425C595221C17120015A9BC /* ProfileViewController.swift in Sources */,
 				8425C599221C17570015A9BC /* CameraViewController.swift in Sources */,
 				8425C563221BFAE90015A9BC /* AppDelegate.swift in Sources */,
