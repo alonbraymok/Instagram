@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
         FirebaseService.signIn(email: emailTextField.text!, password: passwordTextField.text!) {
             self.performSegue(withIdentifier: "moveToProfile", sender: self)
-            print('move to profile')
+            print("move to profile")
         }
         
 
