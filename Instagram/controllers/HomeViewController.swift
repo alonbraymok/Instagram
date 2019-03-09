@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import SDWebImage
-
+import ProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDelegate{
     
@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate{
     }
     
     func loadPosts(){
+        ProgressHUD.show("Download Image", interaction: false)
         Database.database().reference().child("posts").observe(.childAdded) { (DataSnapshot) in
             if let dict = DataSnapshot.value as? [String: Any]{
                 let caption = dict["caption"] as! String
@@ -40,6 +41,7 @@ class HomeViewController: UIViewController, UITableViewDelegate{
                 self.tableview.reloadData()
             }
         }
+        
     }
 
 
@@ -50,7 +52,7 @@ extension HomeViewController: UITableViewDataSource {
         return posts.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500;//Choose your custom row height
+        return 460;//Choose your custom row height
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeTableViewCell
@@ -64,6 +66,7 @@ extension HomeViewController: UITableViewDataSource {
 //
 //            }
 //        }
+       
         if let uid = post.uid {
             Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { (sanpshot) in
                 if let dict = sanpshot.value as? [String: Any]{
@@ -86,6 +89,7 @@ extension HomeViewController: UITableViewDataSource {
                 
             }
         }
+        
         cell.postImageView.layer.cornerRadius = 4
         cell.postImageView.clipsToBounds = true
         return cell

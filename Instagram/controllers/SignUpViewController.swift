@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -43,6 +44,7 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func signupTapped(_ sender: Any) {
+        ProgressHUD.show("Sign in..", interaction: false)
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { user, error in
             if error != nil {
                 print(error!.localizedDescription)
@@ -72,6 +74,7 @@ class SignUpViewController: UIViewController {
                     let newUserRef = userRef.child(uid!)
                     newUserRef.setValue(["uid": uid, "username": self.usernameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": url])
                     print("signed in")
+                    ProgressHUD.showSuccess("Success")
                     self.performSegue(withIdentifier: "backToSignIn", sender: self)
                     }
                 

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class ViewController: UIViewController {
 
@@ -26,8 +27,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signInTapped(_ sender: Any) {
-        
+        ProgressHUD.show("Log in..", interaction: false)
         FirebaseService.signIn(email: emailTextField.text!, password: passwordTextField.text!) {
+            ProgressHUD.showSuccess("seccess")
             self.performSegue(withIdentifier: "moveToProfile", sender: self)
             print("move to profile")
         }

@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import SDWebImage
+import ProgressHUD
 
 class ProfileViewController: UIViewController, UITableViewDelegate {
 
@@ -35,6 +36,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
     
 
     func loadPosts(){
+        ProgressHUD.show("Download Image", interaction: false)
         let currentUserId = Auth.auth().currentUser?.uid
         Database.database().reference().child("posts").observe(.childAdded) { (DataSnapshot) in
             if let dict = DataSnapshot.value as? [String: Any]{
@@ -49,6 +51,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate {
                 self.tableview.reloadData()
             }
         }
+        ProgressHUD.showSuccess("Have fun!")
     }
     func loadUserInfo(id: String?){
         if let uid = id {
@@ -75,7 +78,7 @@ extension ProfileViewController: UITableViewDataSource{
         return posts.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300;//Choose your custom row height
+        return 360;//Choose your custom row height
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "profilePostCell", for: indexPath) as! ProfileTableViewCell

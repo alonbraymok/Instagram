@@ -10,7 +10,7 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
-
+import ProgressHUD
 class CameraViewController: UIViewController {
 
     
@@ -34,6 +34,7 @@ class CameraViewController: UIViewController {
     }
     
     @IBAction func postButtonTapped(_ sender: Any) {
+       ProgressHUD.show("Uploading..", interaction: false)
         var data = Data()
         data = self.photo.image!.pngData()!
         
@@ -64,15 +65,16 @@ class CameraViewController: UIViewController {
         }
         let currentUserId = Auth.auth().currentUser?.uid
         newPostReference.setValue(["uid": currentUserId, "photoUrl": photoUrl, "caption": captionTextView.text!])
-        self.captionTextView.text = "Write here photo description"
+        self.captionTextView.text = ""
         self.photo.image = UIImage(named: "upload_image")
+        ProgressHUD.showSuccess("Success")
         self.tabBarController?.selectedIndex = 0
     }
     
     
     
     @IBAction func clearData(_ sender: Any) {
-        self.captionTextView.text = "Write here photo description"
+        self.captionTextView.text = ""
         self.photo.image = UIImage(named: "upload_image")
     }
     
