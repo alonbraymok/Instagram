@@ -10,13 +10,14 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var caption: UILabel!
     
+    @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var caption: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

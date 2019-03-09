@@ -20,10 +20,14 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgk-OA-eeh">
                                 <rect key="frame" x="0.0" y="113" width="375" height="100"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h47-qJ-Yeu">
-                                        <rect key="frame" x="96" y="39" width="271" height="51"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appBackground" translatesAutoresizingMaskIntoConstraints="NO" id="APL-me-ROS">
+                                        <rect key="frame" x="0.0" y="-49" width="375" height="606"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h47-qJ-Yeu">
+                                        <rect key="frame" x="96" y="10" width="271" height="80"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_image" translatesAutoresizingMaskIntoConstraints="NO" id="z1k-UA-fCP">
@@ -33,13 +37,6 @@
                                             <constraint firstAttribute="height" constant="85" id="Pa0-IX-tP0"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Say why in one word !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTi-Pb-id0">
-                                        <rect key="frame" x="96" y="-1" width="166" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -129,6 +126,7 @@
     </scenes>
     <resources>
         <image name="Photo" width="22" height="23"/>
+        <image name="appBackground" width="1000" height="1000"/>
         <image name="trash" width="512" height="512"/>
         <image name="upload_image" width="225" height="225"/>
     </resources>

@@ -65,7 +65,6 @@ extension HomeViewController: UITableViewDataSource {
 //            }
 //        }
         if let uid = post.uid {
-            print(uid)
             Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value) { (sanpshot) in
                 if let dict = sanpshot.value as? [String: Any]{
                     let user = User(uid: dict["uid"] as! String,username: dict["username"] as! String, email: dict["email"] as! String, profileImageUrl: dict["profileImageUrl"] as! String)
@@ -87,7 +86,8 @@ extension HomeViewController: UITableViewDataSource {
                 
             }
         }
-        
+        cell.postImageView.layer.cornerRadius = 4
+        cell.postImageView.clipsToBounds = true
         return cell
     }
 }
