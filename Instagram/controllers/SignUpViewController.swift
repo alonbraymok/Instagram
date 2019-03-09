@@ -49,8 +49,8 @@ class SignUpViewController: UIViewController {
                 return
             }
             let ref = Database.database().reference()
-            let uid = ref.childByAutoId().key
-
+            //let uid = ref.childByAutoId().key
+            let uid = Auth.auth().currentUser?.uid
             //let storgeRef = Storage.storage().reference(forURL: "gs://instagram-753b8.appspot.com/").child("profileImage").child(uid!)
             
             
@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController {
                     let url = downloadURL.absoluteString
                     let userRef = ref.child("users")
                     let newUserRef = userRef.child(uid!)
-                    newUserRef.setValue(["username": self.usernameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": url])
+                    newUserRef.setValue(["uid": uid, "username": self.usernameTextField.text!, "email": self.emailTextField.text!, "profileImageUrl": url])
                     print("signed in")
                     self.performSegue(withIdentifier: "backToSignIn", sender: self)
                     }

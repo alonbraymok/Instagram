@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseDatabase
-
+import FirebaseAuth
 
 class CameraViewController: UIViewController {
 
@@ -55,11 +55,15 @@ class CameraViewController: UIViewController {
         })
     }
     func sendDataToDatabase(photoUrl: String){
-       let ref = Database.database().reference()
+        let ref = Database.database().reference()
         let postReference = ref.child("posts")
         let newPhotoId = postReference.childByAutoId().key
         let newPostReference = postReference.child(newPhotoId!)
-        newPostReference.setValue(["photoUrl": photoUrl, "caption": captionTextView.text!])
+        guard let currentUser = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let currentUserId = Auth.auth().currentUser?.uid
+        newPostReference.setValue(["uid": currentUserId, "photoUrl": photoUrl, "caption": captionTextView.text!])
         self.captionTextView.text = "Write here photo description"
         self.photo.image = UIImage(named: "upload_image")
         self.tabBarController?.selectedIndex = 0
